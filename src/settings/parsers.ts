@@ -112,6 +112,9 @@ export function raceParser(raceData: string): SettingsRaceData[] {
     return races;
 }
 
+
+export function raceParserComplex(raceData: )
+
 export function nationParser(nationData: string): SettingsNationData[] {
     const nations: SettingsNationData[] = [];
 

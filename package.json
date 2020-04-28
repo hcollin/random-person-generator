@@ -10,10 +10,15 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^4.1.1",
+    "@types/jest": "^25.2.1",
     "@types/ms": "^0.7.31",
+    "@types/source-map-support": "^0.5.1",
+    "jest": "^25.5.0",
     "rollup": "^1.32.1",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-node-resolve": "^4.2.4",
+    "source-map-support": "^0.5.19",
+    "ts-jest": "^25.4.0",
     "ts-node": "^7.0.1",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
@@ -22,6 +27,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "ts-node test/test.ts",
+    "jtest": "jest --detectOpenHandles --colors --watch",
     "pretest": "npm run build"
   },
   "files": [
