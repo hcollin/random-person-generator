@@ -5,7 +5,8 @@
   "module": "dist/random-person-person.esm.js",
   "browser": "dist/random-person-person.umd.js",
   "dependencies": {
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "rollup-plugin-typescript": "^1.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^4.1.1",
