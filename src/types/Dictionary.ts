@@ -27,6 +27,10 @@ export interface WordCollection {
     words: DictionaryWord[];
 }
 
+export interface KeyedWordCollections {
+    [collectionKey: string]: WordCollection;
+}
+
 export interface Dictionary {
     word: (key: string) => DictionaryWord|undefined;
     add: (key:string, word: DictionaryWord) => void;

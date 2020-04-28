@@ -1,5 +1,5 @@
 import { CharacterSetting, Name, Gender } from "./Character";
-import { WordCollection } from "./Dictionary";
+import { WordCollection, KeyedWordCollections } from "./Dictionary";
 
 export interface SettingsApi {
     getMeta: () => SettingsMetadata;
@@ -47,13 +47,12 @@ export interface SettingsRaceData {
 export interface SettingsComplexRace {
     name: string;
     generalAppearance: SettingsRaceAppearance;
-    appearancesPerGender: SettingsRaceAppearance[];
-    stats: 
-
+    appearancesPerGender: SettingsRaceAppearanceByGender[];
+    statModifiers: SettingsStats|SettingsStatsFunction;
 }
 
 export interface SettingsRaceAppearance {
-    gender: Gender[];
+    gender?: Gender[];
     avgHeight: number;
     avgWeight: number;
     heightVariance: number;
@@ -68,9 +67,31 @@ export interface SettingsRaceAppearance {
     lastNames: string[];
     numberOfFirstNames: [number, number];
 
-    heightDescriptionWords: WordCollection;
-    weightDescriptionWords: WordCollection;
+    heightDescriptionWords: KeyedWordCollections;
+    weightDescriptionWords: KeyedWordCollections;
+};
+
+
+export interface SettingsRaceAppearanceByGender {
+    gender: Gender;
+    avgHeight?: number;
+    avgWeight?: number;
+    heightVariance?: number;
+    weightVariance?: number;
+    maxAge?: number;
+    adulthood?: number;
+    skinColors?: string[];
+    hairColors?: string[];
+    appearanceKeywords?: [string, number|undefined, string|undefined][];
+    
+    firstNames?: string[];
+    lastNames?: string[];
+    numberOfFirstNames?: [number, number];
+
+    heightDescriptionWords?: KeyedWordCollections;
+    weightDescriptionWords?: KeyedWordCollections;
 }
+
 
 export interface SettingsStats {
     strength: number;
@@ -80,6 +101,8 @@ export interface SettingsStats {
     wisdom: number;
     charisma: number;
 }
+
+export type SettingsStatsFunction = () => SettingsStats;
 
 export interface SettingsNationData {
     name: string;
