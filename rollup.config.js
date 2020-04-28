@@ -8,7 +8,7 @@ export default [
 	{
 		input: 'src/main.ts',
 		output: {
-			name: 'howLongUntilLunch',
+			name: 'randomFinnishPerson',
 			file: pkg.browser,
 			format: 'umd'
 		},
